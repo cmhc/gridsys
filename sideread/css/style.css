@@ -23,9 +23,11 @@ li {
   top: 0;
 }
 #nav li a {
+  font-family: Helvetica, Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-size: 17px;
   color: #ffffff;
   display: block;
-  padding: 10px;
+  padding: 8px 15px;
   text-decoration: none;
   border-top: 1px solid #4d4d4d;
   border-bottom: 1px solid #1a1a1a;
@@ -33,16 +35,29 @@ li {
 #nav li a:hover {
   background: #f49484;
 }
-#main-content {
-  padding-left: 200px;
+#mobile-nav {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 40px;
+  line-height: 40px;
+  background: #333333;
+  padding: 0px 15px;
+  color: #FFF;
+  z-index: 999;
+  padding: 0;
 }
-#main-content .list {
-  font-size: 17px;
+#mobile-nav #show-nav {
+  background: #000;
+  float: left;
+  padding: 0px 15px;
+  margin: 0;
 }
-#main-content .list .nav {
+.little-nav {
   border-bottom: 1px solid #ccc;
 }
-#main-content .list .nav a {
+.little-nav a {
   font-family: Helvetica, Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   text-decoration: none;
   display: block;
@@ -53,8 +68,14 @@ li {
   border-bottom: 2px solid #fff;
   padding: 15px 0px;
 }
-#main-content .list .nav a:hover {
+.little-nav a:hover {
   border-bottom: 2px solid #ccc;
+}
+#main-content {
+  padding-left: 200px;
+}
+#main-content .list {
+  font-size: 17px;
 }
 #main-content .list .item {
   padding: 15px 0px;
@@ -64,6 +85,13 @@ li {
 #main-content .list .item .title {
   font-size: 22px;
   color: #333;
+}
+#main-content .list .item .title a {
+  color: #333;
+  text-decoration: none;
+}
+#main-content .list .item .title a:hover {
+  text-decoration: underline;
 }
 #main-content .list .tags a {
   font-family: Helvetica, Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
@@ -76,7 +104,11 @@ li {
 #main-content .list .tags a:hover {
   background: #f0f0f0;
 }
+#main-content #hot7-posts {
+  display: none;
+}
 #sidebar {
+  padding-left: 15px;
   padding-right: 15px;
 }
 #sidebar .item .title {
@@ -96,4 +128,38 @@ li {
 }
 #sidebar .item a:hover {
   background: #e0e0e0;
+}
+#single .title {
+  text-align: center;
+  padding: 15px 0px;
+}
+#single .title a {
+  font-family: Helvetica, Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  font-size: 26px;
+  color: #333;
+  text-decoration: none;
+}
+/**
+ * 针对平板
+*/
+@media (max-width: 991px) {
+  #nav {
+    left: -200px;
+    transition: left 0.5s;
+    -moz-transition: left 0.5s;
+    /* Firefox 4 */
+    -webkit-transition: left 0.5s;
+    /* Safari 和 Chrome */
+    -o-transition: left 0.5s;
+    /* Opera */
+    z-index: 999;
+  }
+  #main-content {
+    padding-left: 0px;
+    padding-top: 50px;
+  }
+  #sidebar {
+    display: none;
+    margin-left: 8%;
+  }
 }

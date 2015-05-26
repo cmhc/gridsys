@@ -12,6 +12,8 @@
 
 @font-normal: Georgia,"Times New Roman",Times,serif;
 
+@mobile-nav-background:#333;
+
 html,body{
 	height:100%;
 	color: #333333;
@@ -27,6 +29,8 @@ ul, li{
 	margin:0
 }
 
+
+//导航栏
 #nav{
 	width:@nav-width;
 	background:@nav-bg;
@@ -38,9 +42,11 @@ ul, li{
 
 	li{
 		a{
+			font-family:@font-yahei;
+			font-size:17px;
 			color:@nav-color;
 			display: block;
-			padding:10px;
+			padding:8px 15px;
 			text-decoration: none;
 			border-top:1px solid lighten(@nav-bg, 10%);
 			border-bottom:1px solid  darken(@nav-bg, 10%);
@@ -51,30 +57,52 @@ ul, li{
 	}
 }
 
+//手机端的导航栏
+#mobile-nav{
+	width:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	height:40px;
+	line-height:40px;
+	background:@mobile-nav-background;
+	padding:0px 15px;
+	color:#FFF;
+	z-index:999;
+	padding:0;
+
+	#show-nav{
+		background:#000;
+		float:left;
+		padding:0px 15px;
+		margin:0;
+	}
+}
+
+.little-nav{
+	border-bottom:1px solid #ccc;
+	a{
+		font-family: @font-yahei;
+		text-decoration: none;
+		display: block;
+		float:left;
+		color:@text-color;
+		margin-right:20px;
+		font-size:15px;
+		border-bottom:2px solid #fff;
+		padding:15px 0px;
+
+		&:hover{
+			border-bottom:2px solid #ccc;
+		}
+	}
+}
+
 #main-content{
 	padding-left:@nav-width;
 
 	.list{
 		font-size:17px;
-
-		.nav{
-			border-bottom:1px solid #ccc;
-			a{
-				font-family: @font-yahei;
-				text-decoration: none;
-				display: block;
-				float:left;
-				color:@text-color;
-				margin-right:20px;
-				font-size:15px;
-				border-bottom:2px solid #fff;
-				padding:15px 0px;
-
-				&:hover{
-					border-bottom:2px solid #ccc;
-				}
-			}
-		}
 
 		.item{
 			padding:15px 0px;
@@ -83,6 +111,13 @@ ul, li{
 			.title{
 				font-size:22px;
 				color:#333;
+				a{
+					color:#333;
+					text-decoration: none;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
 			}
 		}
 
@@ -102,10 +137,16 @@ ul, li{
 			}
 		}
 	}
+
+	//七日热门
+	#hot7-posts{
+		display:none;
+	}
 }
 
 
 #sidebar{
+	padding-left:15px;
 	padding-right:15px;
 	.item{
 		.title{
@@ -128,5 +169,45 @@ ul, li{
 				background:#e0e0e0;
 			}
 		}
+	}
+}
+
+
+
+
+//single页面
+
+#single{
+	.title{
+		text-align: center;
+		padding:15px 0px;
+		a{
+			font-family: @font-yahei;
+			font-size:26px;
+			color:#333;
+			text-decoration: none;
+		}
+	}
+}
+
+/**
+ * 针对平板
+*/
+@media (max-width:991px) {
+	#nav{
+		left:-200px;
+		transition:left 0.5s;
+		-moz-transition: left 0.5s; /* Firefox 4 */
+		-webkit-transition: left 0.5s; /* Safari 和 Chrome */
+		-o-transition: left 0.5s; /* Opera */
+		z-index:999;	
+	}
+	#main-content{
+		padding-left:0px;
+		padding-top:50px;
+	}
+	#sidebar{
+		display:none;
+		margin-left:8%;
 	}
 }
